@@ -4,7 +4,9 @@ import unittest
 from Day1 import sumOfTwoNumbers
 from Day1 import sumOfTwoNumbersEquals
 from Day1 import inputFileAsListofIntegers
-from Day1 import doAnyTwoIntegersInAListSumToDesiredValue
+from Day1 import whichTwoIntegersInAListSumToDesiredValue
+from Day1 import whichThreeIntegersInAListSumToDesiredValue
+from Day1 import productOfFactors
 
 class SummingNumbers(unittest.TestCase):
     def testSumOfTwoNumbersIsCorrect(self):
@@ -28,13 +30,25 @@ class ReadingInput(unittest.TestCase):
         self.assertEqual(lines[1], 2)
         self.assertEqual(lines[2], 3)
 
+class FindingSumsOfTwoInList(unittest.TestCase):
+    def testCannotHaveLessThanTwoIntegers(self):
+        self.assertCountEqual(whichTwoIntegersInAListSumToDesiredValue([1], 2), [])
+
     def testCanFindDesiredSumOfTwoIntegers(self):
-        self.assertTrue(doAnyTwoIntegersInAListSumToDesiredValue([1, 2, 3], 5))
+        self.assertCountEqual(whichTwoIntegersInAListSumToDesiredValue([1, 2, 3], 5), [2, 3])
 
     def testCanFailToFindDesiredSumOfTwoIntegers(self):
-        self.assertTrue(doAnyTwoIntegersInAListSumToDesiredValue([1, 2, 3], 2))
+        self.assertCountEqual(whichTwoIntegersInAListSumToDesiredValue([1, 2, 3], 7), [])
+
+class FindingSumsOfThreeInList(unittest.TestCase):
+    def testCannotHaveLessThanThreeIntegers(self):
+        self.assertCountEqual(whichThreeIntegersInAListSumToDesiredValue([1, 2], 2), [])
 
 
+
+class FindingProductOfFactors(unittest.TestCase):
+    def testCorrectProductWithTwoFactors(self):
+        self.assertEqual(productOfFactors([2, 3]), 6)
 
 if __name__ == '__main__':
     unittest.main()

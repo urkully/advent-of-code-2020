@@ -1,12 +1,12 @@
 import os
 import unittest
 
-from Day1 import sumOfTwoNumbers
-from Day1 import sumOfTwoNumbersEquals
-from Day1 import inputFileAsListofIntegers
-from Day1 import whichTwoIntegersInAListSumToDesiredValue
-from Day1 import whichThreeIntegersInAListSumToDesiredValue
-from Day1 import productOfFactors
+from Day1Logic import sumOfTwoNumbers
+from Day1Logic import sumOfTwoNumbersEquals
+from Day1Logic import inputFileAsListofIntegers
+from Day1Logic import whichTwoIntegersInAListSumToDesiredValue
+from Day1Logic import whichThreeIntegersInAListSumToDesiredValue
+from Day1Logic import productOfFactors
 
 class SummingNumbers(unittest.TestCase):
     def testSumOfTwoNumbersIsCorrect(self):
